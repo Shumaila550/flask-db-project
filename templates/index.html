@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test Page</title>
+    <title>Flask Database Project</title>
 </head>
 <body>
-    <h1>FLASK TEMPLATE WORKING ✅</h1>
-    <p>If you see this, everything is correct.</p>
+    <h2>Add User</h2>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>Users</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.name }} - {{ user.email }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
-
