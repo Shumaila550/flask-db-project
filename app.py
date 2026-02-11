@@ -1,16 +1,11 @@
-import os
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 
-database_url = os.getenv("DATABASE_URL")
+@app.route("/")
+def home():
+    return "My Project is Live on Railway 🚀"
 
-if database_url:
-    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
