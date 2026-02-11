@@ -1,10 +1,9 @@
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 
-# Database configuration
 database_url = os.getenv("DATABASE_URL")
 
 if database_url:
@@ -16,7 +15,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# Example route
 @app.route("/")
 def home():
-    return "Flask app is running successfully!"
+    return "App is working successfully!"
